@@ -1,0 +1,39 @@
+name: Multi-Job Cowsay workflow 
+
+on: push
+
+jobs:
+    build_job_1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout action
+          uses: actions/checkout@v4 
+
+        - name: Install Cowsay lib & execute
+          run: |
+            sudo apt-get install -y cowsay
+            cowsay -f dragon "Hi i am a dragon" >> dragon.txt
+
+    test_job_2:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout action
+          uses: actions/checkout@v4 
+    
+        - name: Show file contents
+          run: ls -lrth     
+        
+        - name: check file created or not
+          run: grep -i "dragon" dragon.txt
+
+    run_job_2:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout action
+          uses: actions/checkout@v4 
+        
+        - name: Show file contents
+          run: ls -lrth     
+            
+        - name: Check the file content
+          run: cat dragon.txt        
