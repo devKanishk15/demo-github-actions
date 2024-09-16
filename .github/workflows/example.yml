@@ -14,9 +14,9 @@ jobs:
             echo "Hello World"
             ls -lrha
             cat README.md
-            
+
         - name: Install Cowsay 
-          run: apt install cowsay
+          run: sudo apt install cowsay
 
         - name: Cowsay program
           run: cowsay -f dragon "Hello im a dragon" >> dragon.txt    
