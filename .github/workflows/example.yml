@@ -10,12 +10,15 @@ jobs:
           uses: actions/checkout@v4 
 
         - name: Echo hello world
-          run: echo "Hello World"
+          run: |
+            echo "Hello World"
+            ls -lrha
+            cat README.md
+
+        # - name: List Files
+        #   run: ls
           
-        - name: List Files
-          run: ls
-          
-        - name: Show README
-          run: cat README.md  
+        # - name: Show README
+        #   run: cat README.md  
 
 
