@@ -19,7 +19,10 @@ jobs:
           run: sudo apt install cowsay
 
         - name: Cowsay program
-          run: cowsay -f dragon "Hello im a dragon" >> dragon.txt    
+          run: |
+            cowsay -f dragon "Hello im a dragon" >> dragon.txt 
+            cat dragon.txt
+
 
         # - name: List Files
         #   run: ls
