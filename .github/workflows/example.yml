@@ -16,13 +16,16 @@ jobs:
             cat README.md
 
         - name: Install Cowsay 
-          run: sudo apt install cowsay
+          run: sudo apt-get install cowsay -y
 
         - name: Cowsay program
           run: |
             cowsay -f dragon "Hello im a dragon" >> dragon.txt 
             cat dragon.txt
 
+        - name: Script test
+          run: |    
+                  
 
         # - name: List Files
         #   run: ls

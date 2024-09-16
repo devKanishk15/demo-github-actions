@@ -1,0 +1,13 @@
+name: Cowsay workflow using bash script
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout action
+          uses: actions/checkout@v4 
+
+        - name: Execute cowsay bash script
+          run: /bin/bash cowsay-install.sh           
