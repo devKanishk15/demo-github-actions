@@ -14,5 +14,5 @@ jobs:
         
         - name: Execute cowsay bash script
           run: |
-            chmod +x .github/workflows/cowsay-install.sh
-            ./.github/workflows/cowsay-install.sh           
+            chmod +x cowsay-install.sh
+            ./cowsay-install.sh           
