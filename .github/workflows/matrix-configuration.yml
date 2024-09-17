@@ -11,7 +11,7 @@ jobs:
            max-parallel: 3        ## Max jobs that can run in parallel  
            matrix:
             os: ['ubuntu-latest', 'ubuntu-20.04', 'windows-latest']        ## here we used key and array of strings format
-            images: ['hello-world', 'alpine']
+            image: ['hello-world', 'alpine']
             exclude:
               - image: alpine
                 os: windows-latest 
@@ -24,5 +24,5 @@ jobs:
           run: docker info
           
         - name: Run Images on ${{ matrix.os }}
-          run: docker run ${{ matrix.images }}
+          run: docker run ${{ matrix.image }}
                           
