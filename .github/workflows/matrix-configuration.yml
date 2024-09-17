@@ -6,10 +6,18 @@ on:
         
 jobs:
     Deploy:
-        strategy:                   ## Set startegy as matrix and inside it mentioned the variables in key-walue format.
-          matrix:
-            os: ['ubuntu-latest', 'ubuntu-20.0.4', 'windows-latest']        ## here we used key and array of strings format
+        strategy:                 ## Set startegy as matrix and inside it mentioned the variables in key-walue format.
+           fail-fast: false       ## Setting to false will prevent failing of all jobs if any 1 job fails  
+           max-parallel: 3        ## Max jobs that can run in parallel  
+           matrix:
+            os: ['ubuntu-latest', 'ubuntu-20.04', 'windows-latest']        ## here we used key and array of strings format
             images: ['hello-world', 'alpine']
+            exclude:
+              - image: alpine
+                os: windows-latest 
+            include:
+              - image: amd64/alpine
+                os: ubuntu-20.04    
         runs-on: ${{ matrix.os }}
         steps:
         - name: Echo docker details
