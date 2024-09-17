@@ -5,20 +5,16 @@ on:
     workflow_dispatch: 
         
 jobs:
-    deploy_on_ubuntu:
-        runs-on: ubuntu-latest
+    Deploy:
+        strategy:                   ## Set startegy as matrix and inside it mentioned the variables in key-walue format.
+          matrix:
+            os: ['ubuntu-latest', 'ubuntu-20.0.4', 'windows-latest']        ## here we used key and array of strings format
+            images: ['hello-world', 'alpine']
+        runs-on: ${{ matrix.os }}
         steps:
         - name: Echo docker details
           run: docker info
           
-        - name: Run Images
-          run: docker run hello-world
-          
-    deploy_on_windows:
-        runs-on: windows-latest
-        steps:
-        - name: Echo docker details
-          run: docker info
-            
-        - name: Run Images
-          run: docker run hello-world                  
+        - name: Run Images on ${{ matrix.os }}
+          run: docker run ${{ matrix.images }}
+                          
