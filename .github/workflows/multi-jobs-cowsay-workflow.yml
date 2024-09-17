@@ -40,6 +40,7 @@ jobs:
           run: grep -i "dragon" dragon.txt
 
     run_job_3:
+        if: github.ref == 'refs/heads/main'
         needs: [test_job_2]
         concurrency:                    ## Used concurrency here
             group: prod-deployment
