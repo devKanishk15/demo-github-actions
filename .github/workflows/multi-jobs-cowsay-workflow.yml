@@ -49,7 +49,7 @@ jobs:
         steps:
         - name: Sleep for 10min
           timeout-minutes: 1            ## Jobs will terminate after 1min.
-          run: sleep 6000s
+          run: sleep 6s
 
         - name: Show file contents
           run: ls -lrth     
