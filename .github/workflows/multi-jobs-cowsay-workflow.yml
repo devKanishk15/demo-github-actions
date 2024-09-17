@@ -1,9 +1,9 @@
 name: Multi-Job Cowsay workflow 
 
-on: 
-    workflow_dispatch: 
-    # schedule:
-    #   - cron: "*/1 * * * *"
+on: push
+    # workflow_dispatch: 
+    # # schedule:
+    # #   - cron: "*/1 * * * *"
 
 jobs:
     build_job_1:
