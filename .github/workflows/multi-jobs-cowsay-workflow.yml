@@ -43,7 +43,7 @@ jobs:
         needs: [test_job_2]
         concurrency: 
             group: prod-deployment
-            cancel-in-progress: true
+            cancel-in-progress: false
         runs-on: ubuntu-latest
         steps:
         
