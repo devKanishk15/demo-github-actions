@@ -41,13 +41,13 @@ jobs:
 
     run_job_3:
         needs: [test_job_2]
-        concurrency: 
+        concurrency:                    ## Used concurrency here
             group: prod-deployment
-            cancel-in-progress: false    
+            cancel-in-progress: true        ## True means existing running jobs will killed; false means they will run along with new workflow    
         runs-on: ubuntu-latest
         steps:
         - name: Sleep for 10min
-          timeout-minutes: 1
+          timeout-minutes: 1            ## Jobs will terminate after 1min.
           run: sleep 6000s
 
         - name: Show file contents
