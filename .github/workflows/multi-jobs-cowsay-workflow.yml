@@ -43,12 +43,12 @@ jobs:
         needs: [test_job_2]
         concurrency: 
             group: prod-deployment
-            cancel-in-progress: false
+            cancel-in-progress: false    
         runs-on: ubuntu-latest
         steps:
-        
         - name: Sleep for 10min
-          run: sleep 600s
+          timeout-minutes: 1
+          run: sleep 6000s
 
         - name: Show file contents
           run: ls -lrth     
