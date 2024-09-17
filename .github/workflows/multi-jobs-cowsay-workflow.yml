@@ -1,6 +1,8 @@
 name: Multi-Job Cowsay workflow 
 
-on: push
+on: 
+    schedule:
+      - cron: "*/1 * * * *"
 
 jobs:
     build_job_1:
